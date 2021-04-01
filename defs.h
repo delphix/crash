@@ -6539,9 +6539,9 @@ int diskdump_get_nr_cpus(void);
 QEMUCPUState *diskdump_get_qemucpustate(int);
 void diskdump_device_dump_info(FILE *);
 void diskdump_device_dump_extract(int, char *, FILE *);
+ulong readswap(ulonglong pte_val, char *buf, ulong len, ulonglong vaddr);
 /*support for zram*/
 ulong try_zram_decompress(ulonglong pte_val, unsigned char *buf, ulong len, ulonglong vaddr);
-#ifdef LZO
 #define OBJ_TAG_BITS     1
 #ifndef MAX_POSSIBLE_PHYSMEM_BITS
 #define MAX_POSSIBLE_PHYSMEM_BITS (MAX_PHYSMEM_BITS())
@@ -6567,7 +6567,6 @@ struct zspage {
     unsigned int inuse;
     unsigned int freeobj;
 };
-#endif
 
 /*
  * makedumpfile.c
